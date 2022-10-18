@@ -189,7 +189,7 @@ controller.B.onEvent(ControllerButtonEvent.Repeated, function () {
             }
             statusbar.value += -1
         } else {
-            pause(2000)
+            pause(5000)
             statusbar_exists = false
             statusbar.destroy()
         }
