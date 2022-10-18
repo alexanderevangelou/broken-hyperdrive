@@ -19,11 +19,13 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.BlackHole, function (sprite,
     scaling.scaleByPixels(sprite, 10, ScaleDirection.Horizontally, ScaleAnchor.Middle)
     scaling.scaleByPixels(sprite, -10, ScaleDirection.Vertically, ScaleAnchor.Middle)
     sprite.destroy(effects.fire, 100)
+    scaling.scaleByPercent(SuperMasiveBlackHole, 4, ScaleDirection.Uniformly, ScaleAnchor.Middle)
 })
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.BlackHole, function (sprite, otherSprite) {
     scaling.scaleByPixels(sprite, 10, ScaleDirection.Horizontally, ScaleAnchor.Middle)
     scaling.scaleByPixels(sprite, -10, ScaleDirection.Vertically, ScaleAnchor.Middle)
     sprite.destroy(effects.fire, 100)
+    scaling.scaleByPercent(SuperMasiveBlackHole, 4, ScaleDirection.Uniformly, ScaleAnchor.Middle)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (has_time_ended == false) {
@@ -138,6 +140,7 @@ sprites.onOverlap(SpriteKind.Heart, SpriteKind.BlackHole, function (sprite, othe
     scaling.scaleByPixels(sprite, 10, ScaleDirection.Horizontally, ScaleAnchor.Middle)
     scaling.scaleByPixels(sprite, -10, ScaleDirection.Vertically, ScaleAnchor.Middle)
     sprite.destroy(effects.fire, 100)
+    scaling.scaleByPercent(SuperMasiveBlackHole, 4, ScaleDirection.Uniformly, ScaleAnchor.Middle)
 })
 controller.B.onEvent(ControllerButtonEvent.Repeated, function () {
     if (has_time_ended == false) {
@@ -203,7 +206,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Heart, function (sprite, oth
 info.onLifeZero(function () {
     Do_not_do_this_again = true
     if (Do_not_do_this_again == true) {
-        if (info.score() <= 30) {
+        if (info.score() <= 49) {
             does_black_hole_exist = true
             effects.starField.endScreenEffect()
             SuperMasiveBlackHole = sprites.create(img`
@@ -666,9 +669,9 @@ let last_supernova: Sprite = null
 let Enemies: Sprite = null
 let Do_not_do_this_again = false
 let projectile2: Sprite = null
-let SuperMasiveBlackHole: Sprite = null
 let does_black_hole_exist = false
 let projectile: Sprite = null
+let SuperMasiveBlackHole: Sprite = null
 let statusbar: StatusBarSprite = null
 let has_time_ended = false
 let SpaceShip: Sprite = null
