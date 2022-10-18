@@ -673,6 +673,75 @@ let statusbar: StatusBarSprite = null
 let has_time_ended = false
 let SpaceShip: Sprite = null
 let statusbar_exists = false
+game.setDialogFrame(img`
+    ffffffffffffffffffffffffffffffffffffffffffffffff
+    ffffffffffffffffffffffffffffffffffffffffffffffff
+    ffffccccffffccfffccccfffccccffffffffccffffffffff
+    fffcccccccfccccfccccccfccccccffcccfccccffccccfff
+    fffccccccccccccccccccccccccccccccccccccfccccccff
+    fffcccccccccccccccccccccccccccc1ccccccccccccccff
+    fffcccccccccccccccccccccccccccccccccccccccccccff
+    ffffccccccccccccccccccccccccccccccccccccccccccff
+    fffffccccccccccc1cccccc1cccccccccccccccccccccfff
+    fffccccccccccccccccccccccccccccccccccccccccccfff
+    ffcccccc1cccccccccccccccccccccccccccccccccccffff
+    ffccccccccccccccccccccccccccc1cccccccccccccccfff
+    fffcccccccccccccccccccccccccccccccccccccccccccff
+    ffffccccccccccccccccccccccccccccccccccc1ccccccff
+    fffccccccccccccccccccccccccccccccccccccccccccfff
+    fffcccccccccccccccccccccccccccccccccccccccccffff
+    fffccccccccccccccccc1ccccccccccccccccccccccccfff
+    ffffccccccccccccccccccccccccccccccccccccccccccff
+    ffffccccccccccccccccccccccccccccccccccccccccccff
+    fffcccccccccccccccccccccccccccccccccccccccccccff
+    ffccccccccccccccccccccccccccccccccccccccccccccff
+    ffcccccccccccccccccccccccccccccccccccccccccccfff
+    ffccccccccccccccccccccccccc1ccccccccc1cccc1cffff
+    ffcccccccccccccccccccccccccccccccccccccccccccfff
+    fffcccccccccccccccccccccccccccccccccccccccccccff
+    ffffcccccc1cccccccccccccccccccccccccccccccccccff
+    fffcccccccccccccccccccccccccccccccccccccccccccff
+    ffccccccccccccccccccccccccccccccccccccc1ccccccff
+    ffcccccccccccccccccccccccccccccccccccccccccccfff
+    ffccccccccccccccccccccccccccccccccccccccccccffff
+    ffccccccccccccccccccc1ccccccc1ccccccccccccccffff
+    fffccccccccccccccccccccccccccccccccccccccccccfff
+    ffdccccccccccccccccccccccccccccccccccddcccccccff
+    fdddcccccccccccccccccccccccccccccccccddcccccccff
+    fdddccccccccccddcccccccccccccccccccccddccccddcff
+    fd5dcccccccccdddddcccccccccccdddddcccdddcccdddff
+    fdddcccdddcccd555dccccdddddccd555dccddddcccdddff
+    fd5dccdddddccdddddccccdddddccdddddccd5ddcccdddff
+    fdddccd5d5dccd555dcddcd5dddccd555dccddddddddddff
+    fd5dccdddddccdddddcddcddd5dccddddddddd5ddd555ddd
+    ddddccd5d5dccd555dcddcdddddccd555ddddddddddddddd
+    dd5dcdddddddddddddcddcd5ddddddddddddd5dddd555ddd
+    ddddcdd5d5dddd555dddddddd5dddd555ddddddddddddddd
+    dd5dcddddddddddddddddddddddddddddddddd5ddd555ddd
+    ddddddddddddddddddddddd5dddddddddddddddddddddddd
+    ddddddddddddddddddddddddd5ddddddddddd5dddd555ddd
+    .dddddddddddddddddddddddddddddddddddddddddddddd.
+    ..dddddddddddddddddddddddddddddddddddddddddddd..
+    `)
+game.showLongText("you launched your spacship to mine 60 astroids and had a hyperdrive to go to the astroid belt near mars to mine use spacebar to shoot mining lasers and enter to shoot a beem of mining lasers and don't lose your hyperdrive health or you will stop time or create a black hole", DialogLayout.Full)
+game.setDialogCursor(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . c c c c . . 
+    . c c c c c . c c c c c f c c . 
+    c c a c c c c c 8 f f c f f c c 
+    c a f a a c c a f f c a a f f c 
+    c a 8 f a a c a c c c a a a a c 
+    c b c f a a a a a c c c c c c c 
+    c b b a a c f 8 a c c c 8 c c c 
+    . c b b a b c f a a a 8 8 c c . 
+    . . . . a a b b b a a 8 a c . . 
+    . . . . c b c a a c c b . . . . 
+    . . . . b b c c a b b a . . . . 
+    . . . . b b a b a 6 a . . . . . 
+    . . . . c b b b 6 6 c . . . . . 
+    . . . . . c a 6 6 b c . . . . . 
+    . . . . . . . c c c . . . . . . 
+    `)
 let list = [
 img`
     . . . . . . . . . . . . . . . . 
@@ -1414,6 +1483,7 @@ forever(function () {
             . . . . . . . c c c . . . . . . 
             `)
         game.setDialogTextColor(7)
-        game.showLongText("you mined those astroids perfectly to bulid more SpaceShips and buildings on earth witch was the most dandrous job because of blackholes,astroids hiting you and the worst was Time ending!", DialogLayout.Center)
+        game.showLongText("you mined those astroids perfectly to bulid more SpaceShips and buildings on earth witch was the most dangerous job because of blackholes,astroids hiting you and the worst was Time ending!", DialogLayout.Center)
+        game.over(true, effects.confetti)
     }
 })
